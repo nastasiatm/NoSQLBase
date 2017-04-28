@@ -26,6 +26,8 @@ public class MongoGenerate {
     static List<String> patrMan = new ArrayList<>();
     static List<String> patrWoman = new ArrayList<>();
     static List<String> text = new ArrayList<>();
+    static Integer complex_id = 0;
+    static Integer owner_id = 0;
 
 
 
@@ -80,6 +82,7 @@ public class MongoGenerate {
         Random rnd = new Random();
         for (int i = 0; i < 100_000; i++) {
             Document document = new Document();
+            document.append("complex_id", complex_id++);
             document.append("name", getName());
             document.append("numberOfBuildings", rnd.nextInt(25)+1);
             document.append("hospital", rnd.nextBoolean());
@@ -93,6 +96,7 @@ public class MongoGenerate {
         }
         for (int i = 0; i < 300_000; i++) {
             Document document = new Document();
+            document.append("owner_id", owner_id++);
             document.append("name", getNameMan());
             document.append("surname", getSurnameMan());
             document.append("patronymic", getPMan());
@@ -105,6 +109,7 @@ public class MongoGenerate {
         }
         for (int i = 0; i < 300_000; i++) {
             Document document = new Document();
+            document.append("owner_id", owner_id++);
             document.append("name", getNameWoman());
             document.append("surname", getSurnameWoman());
             document.append("patronymic", getPWoman());
