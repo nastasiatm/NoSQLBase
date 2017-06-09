@@ -158,3 +158,7 @@ public class MongoGenerate {
         return patrWoman.get(rnd.nextInt(81));
     }
 }
+
+docker run --name cassandra2 -m 2g -d \
+  -e CASSANDRA_SEEDS=172.17.0.2 \ 
+  cassandra:2.2
